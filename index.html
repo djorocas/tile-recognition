@@ -1,0 +1,132 @@
+<html>
+<head>
+    <title>CTM Clarifai's JavaScript demo</title>
+    <!-- Favicon for Clarifai -->
+    <link rel="shortcut icon" href="./favicon.ico">
+
+    <!-- Bootstrap and styles are included here -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Styles end -->
+</head>
+<body>
+<div class="container app">
+    <div class="row inputForm">
+        <div class="col-sm-12">
+            <!-- Image url input -->
+            <h1>Submit the image</h1>
+            <div class="form-group">
+                <input class="form-control" type="text" id="imageUrl" name="imageUrl" placeholder="Past a URL here">
+            </div>
+            <div class="form-group">
+                <button id="submitBtn" class="btn btn-primary">Submit image url to Clarifai</button>
+            </div>
+        </div>
+    </div>
+    <!-- Image Preview for the Clarifai Image Being loaded -->
+    <div class="row imagePreview">
+        <div class="col-sm-12">
+            <h2>Image preview</h2>
+            <img class="img-responsive" id="image" src="//i.imgur.com/O5RzPOu.png" alt="preview image" width="30%"
+                 height="30%">
+        </div>
+    </div>
+    <div class="row">
+        <p class="concept text-center" style="font-weight: bold;"></p>
+    </div>
+
+
+    <div class="row tags-container" style="display: none;">
+        <h2>Similar Images</h2>
+        <div class="col-sm-12">
+            <div class="similar-images">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- JavaScript Libraries including jQuery, Bootstrap -->
+<script src="https://cdn.jsdelivr.net/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- JavaScript Libraries script end -->
+
+<!-- Clarifai's open source JavaScript SDK available at https://github.com/Clarifai/clarifai-javascript -->
+<!--<script src="https://sdk.clarifai.com/js/clarifai-1.2.1.js"></script>-->
+
+<script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-2.0.9.js"></script>
+
+
+<script>
+
+    var app = new Clarifai.App(
+            'zNfNYk0S_nObpFZKaKh4vsoM1WF1RuINao9BxBuQ',
+            '-ioYxZ-0X3pkXHAmHpa9zjihzWCj0UsQMrEH_4ta'
+    );
+
+    var submitButton = $("#submitBtn");
+    var imageInput = $("#imageUrl");
+    var image = $("#image");
+    var similarImage = $(".similar-images");
+    var tagContainer = $(".tags-container");
+
+    submitButton.on("click", function (event) {
+        // getting the input from the image
+        var url = imageInput.val();
+        // Set's the url of the image preview
+        image.attr("src", url);
+
+        app.models.predict(Clarifai.GENERAL_MODEL, url).then(
+                function (response) {
+
+                    var concepts = response.data.outputs[0].data.concepts;
+
+                    var imageConcept = " ";
+
+                    $.each(concepts, function (index, value) {
+
+                        imageConcept += value.name + "," ;
+
+                        if (index === 3) {
+
+                            return false;
+                        }
+
+                    });
+
+                    $(".concept").html('Concepts: ' + imageConcept);
+                },
+                function (err) {
+                    console.log('-----ERROR-----', err);
+
+                }
+        );
+
+        app.inputs.search({url: url}).then(
+                function (response) {
+
+                    tagContainer.show();
+
+                    $.each(response, function (index, value) {
+
+                        var imageUrl = value.imageUrl;
+                        var score = value.score;
+
+                        $(".similar-images").append('<div class="col-sm-4" style="padding: 10px;"><img  class="img-responsive" id="similar-image' + index + ' " src= "' + imageUrl + '" alt="preview image"><div> <p style="font-weight: bold; ">Score: ' + score + ' </p></div></div>')
+
+                        if (index === 5) {
+
+                            return false;
+                        }
+                    });
+                },
+                function (err) {
+                    console.log('-----ERROR-----', err);
+
+                }
+        );
+    })
+
+</script>
+</body>
+</html>
