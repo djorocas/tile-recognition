@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94803ba2-6bd9-45e9-8a52-baffe11c1b32" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/tile-recognition.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="tile-recognition.iws" />
@@ -32,7 +26,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1155">
+            <state relative-caret-position="-540">
               <caret line="18" column="104" selection-start-line="18" selection-start-column="104" selection-end-line="18" selection-end-column="104" />
               <folding>
                 <marker date="1483520673000" expanded="true" signature="3752:3766" ph="..." />
@@ -49,8 +43,8 @@
           </provider>
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="150">
-                <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
+              <first_editor relative-caret-position="90">
+                <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -240,12 +234,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1483519850032</updated>
-      <workItem from="1483519851561" duration="1032000" />
+      <workItem from="1483519851561" duration="1496000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1032000" />
+    <option name="totallyTimeSpent" value="1496000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="774" extended-state="6" />
@@ -295,7 +289,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1155">
+        <state relative-caret-position="-540">
           <caret line="18" column="104" selection-start-line="18" selection-start-column="104" selection-end-line="18" selection-end-column="104" />
           <folding>
             <marker date="1483520673000" expanded="true" signature="3752:3766" ph="..." />
@@ -310,8 +304,8 @@
       </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="150">
-            <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
+          <first_editor relative-caret-position="90">
+            <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
             <folding />
           </first_editor>
           <second_editor />
